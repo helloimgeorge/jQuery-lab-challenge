@@ -22,8 +22,28 @@ $(function() {
 	 		-- Input values are strings, remember to parse it!
 			-- Regex for checking digit input is '^\\d+$'
 			-- Look up how setInterval() works, you will need it.
-	*/		
+	*/
+
+
+    $( "#countdownButton").click(function() {
+        var count = parseInt($('#time').val());
+
+        var timer = setInterval(function () {
+            console.log(count);
+
+            if (count !== 0) {
+                $('#displayedTimer').html(--count); // this is the issue
+                
+            } else {
+                clearInterval(count);
+            }
+        }, 1000);
+    });
 });
+
+
+
+
 
 function countDown() {
 	// Hint: if time < 0, stop the countdown, otherwise refresh the timer display & call createConfetti().
